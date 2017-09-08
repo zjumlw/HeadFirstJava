@@ -23,6 +23,7 @@ public class Problem_1 {
 	public static void main(String[] args) {		
 		dog dog1 = new dog(4);
 //		dog1.setAge(3);
+		//中文注释
 		System.out.println("dog1: " + dog1.showAge());
 //		System.out.println("Integer: "+Integer.SIZE/8);
 		
