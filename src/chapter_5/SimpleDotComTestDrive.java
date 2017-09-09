@@ -25,11 +25,7 @@ class SimpleDotCom{
 	}
 }
 
-class helper{
-	public String getUserInput() {
-		return "";
-	}
-}
+	
 public class SimpleDotComTestDrive {
 
 	public static void main(String[] args) {
@@ -40,7 +36,7 @@ public class SimpleDotComTestDrive {
 //		String result = dot.checkYourself(userGuess);
 		
 		int numOfGuesses = 0;
-//		GameHelper helper = new GameHelper();
+		GameHelper helper = new GameHelper();
 		
 		SimpleDotCom theDotCom = new SimpleDotCom();
 		int randomNum = (int)(Math.random()*5);
@@ -49,8 +45,13 @@ public class SimpleDotComTestDrive {
 		boolean isAlive = true;
 		
 		while(isAlive == true) {
-//			String guess = helper.getUserInput("enter a number");
-//			String result = theDotCom.checkYourself(guess);
+			String guess = helper.getUserInput("enter a number");
+			String result = theDotCom.checkYourself(guess);
+			numOfGuesses++;
+			if(result.equals("kill")) {
+				isAlive = false;
+				System.out.println("You took " + numOfGuesses + " guesses");
+			}
 		}
 		
     }
