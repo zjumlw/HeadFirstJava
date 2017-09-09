@@ -32,7 +32,6 @@ class Dog{
 public class Problem_1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Dog[] pets = new Dog[7];
 		pets[0] = new Dog();
 		pets[1] = new Dog();
