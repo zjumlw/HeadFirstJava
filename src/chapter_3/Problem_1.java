@@ -3,19 +3,42 @@ package chapter_3;
 
 class dog{
 	private int age;
+	private String name;
 	
+	public dog(int age,String name) {
+		this.age = age;
+		this.name = name;
+	}
 	public dog(int age) {
 		this.age = age;
 	}
 	public dog() {
-		this.age = 0;
 	}
+	
+	public void bark() {
+		System.out.println(name + "汪汪汪!");
+	}
+	public void eat() {
+		
+	}
+	public void chaseCat() {
+		
+	}
+	
 	public void setAge(int age) {
 		this.age = age;
 	}
 	public int showAge() {
 		return this.age;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String showName() {
+		return this.name;
+	}
+	
 }
 
 public class Problem_1 {
@@ -33,6 +56,11 @@ public class Problem_1 {
 		
 		dog dog2 = dog1;
 		System.out.println("dog2: " + dog2.showAge());
+		
+		dog1 = null;
+//		System.out.println("dog1: " + dog1.showAge());
+//		error: dog1没有引用任何事物
+	
 		
 	}
 
