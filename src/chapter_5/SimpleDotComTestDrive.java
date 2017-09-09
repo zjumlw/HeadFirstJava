@@ -24,6 +24,12 @@ class SimpleDotCom{
 		locationCells = locs;
 	}
 }
+
+class helper{
+	public String getUserInput() {
+		return "";
+	}
+}
 public class SimpleDotComTestDrive {
 
 	public static void main(String[] args) {
@@ -43,8 +49,8 @@ public class SimpleDotComTestDrive {
 		boolean isAlive = true;
 		
 		while(isAlive == true) {
-			String guess = helper.getUserInput("enter a number");
-			String result = theDotCom.checkYourself(guess);
+//			String guess = helper.getUserInput("enter a number");
+//			String result = theDotCom.checkYourself(guess);
 		}
 		
     }
