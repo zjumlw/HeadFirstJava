@@ -23,5 +23,6 @@ ArrayList只需要创建该类型的对象就可以，不需要指定大小，�
 2. 存放对象给一般数组时必须制定位置  
 ArrayList可以使用add(Int, Object)来指定索引值，或者用add来让它自行管理大小
 3. 一般数组使用特殊的语法
-4. ArrayList是参数化的
+4. ArrayList是参数化的  
+ArrayList<String>其中的String就是类型参数，代表这是String的集合。
 

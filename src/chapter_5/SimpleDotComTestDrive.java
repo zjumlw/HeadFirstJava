@@ -11,7 +11,7 @@ class SimpleDotCom{
 			if(guess == cell) {
 				result = "hit";
 				numOfHits++;
-				break;	//离开循环，需要判断是否击沉
+				break;	
 			}
 		}
 		if(numOfHits == locationCells.length){
