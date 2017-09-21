@@ -36,7 +36,8 @@ public class SimpleDotComTestDrive {
 //		String result = dot.checkYourself(userGuess);
 		
 		int numOfGuesses = 0;
-		GameHelper helper = new GameHelper();
+		
+		GameHelper helper = new GameHelper();//用来得到用户的输入
 		
 		SimpleDotCom theDotCom = new SimpleDotCom();
 		int randomNum = (int)(Math.random()*5);
