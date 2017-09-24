@@ -25,10 +25,10 @@ get(int index)
 ArrayList可以使用add(Int, Object)来指定索引值，或者用add来让它自行管理大小；
 3. 一般数组使用特殊的语法；
 4. ArrayList是参数化的：  
-```
+```java
 ArrayList<String>
 ```
-其中的String就是类型参数，代表这是String的集合。
-
+其中的String就是类型参数，代表这是String的集合。  
+如果不指定类型，则将存储的对象当做Object使用，拿出来的时候需要进行类型转换。
 
 

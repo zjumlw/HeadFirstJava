@@ -1,6 +1,6 @@
 加强版的for循环
 
-```
+```java
 for(String name:nameArray){}
 ```
 1.创建名称为name的String变量  
