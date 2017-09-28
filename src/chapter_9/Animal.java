@@ -8,6 +8,11 @@ public class Animal {
 	}
 	
 	public Animal(){
-		System.out.println("Animal");
+		System.out.println("Animal无参数构造函数");
+	}
+	
+	public Animal(String name){
+		this.name = name;
+		System.out.println("Animal有参数构造函数");
 	}
 }
