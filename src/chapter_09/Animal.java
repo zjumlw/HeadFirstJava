@@ -1,4 +1,4 @@
-package chapter_9;
+package chapter_09;
 
 public class Animal {
 	private String name = "kitty";

@@ -1,4 +1,4 @@
-package chapter_5;
+package chapter_05;
 
 class SimpleDotCom{
 	int[] locationCells;

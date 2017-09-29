@@ -1,4 +1,4 @@
-package chapter_3;
+package chapter_03;
 
 public class Problem_2 {
 

@@ -1,4 +1,4 @@
-package chapter_4;
+package chapter_04;
 
 class Dog{
 	private int size;

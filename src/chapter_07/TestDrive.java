@@ -1,4 +1,4 @@
-package chapter_7;
+package chapter_07;
 
 class Appliance{
 	public void turnOn(){

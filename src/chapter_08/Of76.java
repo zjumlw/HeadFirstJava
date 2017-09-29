@@ -1,4 +1,4 @@
-package chapter_8;
+package chapter_08;
 
 abstract class Picasso implements Nose{
 	public int iMethod(){

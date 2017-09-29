@@ -1,4 +1,4 @@
-package chapter_3;
+package chapter_03;
 
 
 class dog{
