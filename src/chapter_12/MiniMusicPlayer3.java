@@ -10,7 +10,7 @@ public class MiniMusicPlayer3 {
 	static MyDrawPanel ml;
 	
 	public void setUpGui(){
-		ml = new MyDrawPanel();
+		ml = new MyDrawPanel();	//MyDrawPanel是JPanel子类，所以用这种方法
 		f.setContentPane(ml);	//加入MyDrawPanel
 		f.setBounds(30,30,300,300);	//设置边界
 		f.setVisible(true);

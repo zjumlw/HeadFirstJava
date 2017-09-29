@@ -9,7 +9,7 @@ public class test {
 		String d = String.valueOf(c);
 		String a1 = "good";
 		String b1 = "good";
-		System.out.println( a1==b1);	//true
+		System.out.println(a1==b1);	//true
 		System.out.println(a.equals(b));	//true
 		System.out.println(a.equals(c));	//false
 		System.out.println(a.equals(d));	//true
