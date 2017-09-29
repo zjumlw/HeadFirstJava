@@ -30,7 +30,8 @@ public class MiniMusicPlayer2 implements ControllerEventListener {	//必须监�
 				r = (int)((Math.random()*50)+1);
 				
 				track.add(makeEvent(144,1,r,100,i));
-				//插入事件编号为127的自定义ControllerEvent(176)，不会做任何事情，只是让我们知道音符被播放，因为其tick和Note On是同时进行的
+				//插入事件编号为127的自定义ControllerEvent(176)，不会做任何事情，
+				//只是让我们知道音符被播放，因为其tick和Note On是同时进行的
 				track.add(makeEvent(176,1,127,0,i));	
 				track.add(makeEvent(128,1,r,100,i+2));
 			}
