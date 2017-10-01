@@ -103,10 +103,10 @@ public class BeatBox {
 
 	public void setUpMidi(){
 		try{
-			sequencer = MidiSystem.getSequencer();
-			sequencer.open();
-			sequence = new Sequence(Sequence.PPQ, 4);
-			track = sequence.createTrack();
+			sequencer = MidiSystem.getSequencer();	//取得sequencer
+			sequencer.open();	//打开
+			sequence = new Sequence(Sequence.PPQ, 4);	
+			track = sequence.createTrack();	//创建新的track
 			sequencer.setTempoInBPM(120);
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -150,6 +150,33 @@ public class BeatBox {
 		}
 	}
 	
+	//创建某项乐器的所有事件
+	public void makeTracks(int[] list){
+		for(int i = 0; i < 16; i++){
+			int key = list[i];
+			
+			if(key != 0){
+				//创建Note On和Note Off事件并加入到track中
+				track.add(makeEvent(144,9,key,100,i));
+				track.add(makeEvent(128,9,key,100,i+1));
+			}
+		}
+	}
+	
+	//制作乐曲信息
+	public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick){
+		MidiEvent event = null;
+		try{
+			ShortMessage a = new ShortMessage();	//创建message
+			a.setMessage(comd, chan, one, two);	//置入指令
+			event = new MidiEvent(a,tick);	//创建得到MidiEvent
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return event;	//返回MidiEvent 乐曲信息
+	}
+	
+	//内部类：按钮的监听者
 	class MyStartListener implements ActionListener{
 
 		@Override
@@ -184,26 +211,4 @@ public class BeatBox {
 		}
 	}
 	
-	public void makeTracks(int[] list){
-		for(int i = 0; i < 16; i++){
-			int key = list[i];
-			
-			if(key != 0){
-				track.add(makeEvent(144,9,key,100,i));
-				track.add(makeEvent(128,9,key,100,i+1));
-			}
-		}
-	}
-	
-	public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick){
-		MidiEvent event = null;
-		try{
-			ShortMessage a = new ShortMessage();
-			a.setMessage(comd, chan, one, two);
-			event = new MidiEvent(a,tick);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		return event;
-	}
 }
