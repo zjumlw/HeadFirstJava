@@ -284,7 +284,7 @@ list.addListSelectionListener(this);
 
 处理事件：
 
-```
+```java
 public void valueChanged(ListSelectionEvent lse){
   if(!lse.getValueIsAdjusting()){	//如果不加上if，会得到两次的事件
     String selection = (String) list.getSelectionValue();	//返回的可能是一个Object
@@ -292,8 +292,4 @@ public void valueChanged(ListSelectionEvent lse){
   }
 }
 ```
-
-
-
-
 
