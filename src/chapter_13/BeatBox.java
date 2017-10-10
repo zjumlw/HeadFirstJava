@@ -5,6 +5,11 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.sound.midi.MidiEvent;
@@ -69,6 +74,12 @@ public class BeatBox {
 		JButton downTempo = new JButton("Tempo Down");
 		downTempo.addActionListener(new MyDownTempoListener());
 		buttonBox.add(downTempo);
+		JButton serializelt = new JButton("serializelt");
+		serializelt.addActionListener(new MySendListener());
+		buttonBox.add(serializelt);
+		JButton restore = new JButton("restore");
+		restore.addActionListener(new MyReadInListener());
+		buttonBox.add(restore);
 		
 		Box nameBox = new Box(BoxLayout.Y_AXIS);
 		for(int i = 0; i < 16; i++){
@@ -211,4 +222,55 @@ public class BeatBox {
 		}
 	}
 	
+	class MySendListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			boolean[] checkboxState = new boolean[256];
+			
+			for(int i = 0; i < 256; i++){
+				JCheckBox check = (JCheckBox) checkboxList.get(i);
+				if(check.isSelected()){
+					checkboxState[i] = true;
+				}
+			}
+			
+			try{
+				FileOutputStream fileStream = new FileOutputStream(new File("Checkbox.ser"));
+				ObjectOutputStream os = new ObjectOutputStream(fileStream);
+				os.writeObject(checkboxState);
+			}catch(Exception ex){
+				ex.printStackTrace();
+			}
+		}
+	}
+	
+	class MyReadInListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			boolean[] checkboxState = null;
+			try{
+				//读取文件中的对象，并将读取回来的Object类型转换回boolean数组
+				FileInputStream fileIn = new FileInputStream(new File("Checkbox.ser"));
+				ObjectInputStream is = new ObjectInputStream(fileIn);
+				checkboxState = (boolean[]) is.readObject();
+			}catch(Exception ex){
+				ex.printStackTrace();
+			}
+			
+			for(int i = 0; i < 256; i++){
+				//还原每个checkbox的状态
+				JCheckBox check = (JCheckBox) checkboxList.get(i);
+				if(checkboxState[i]){
+					check.setSelected(true);
+				}else{
+					check.setSelected(false);
+				}
+			}
+			sequencer.stop();	//停止目前播放的节奏并使用复选框状态重新创建序列
+			buildTrackAndStart();
+		}
+		
+	}
 }
