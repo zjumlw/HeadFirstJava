@@ -80,7 +80,15 @@ public class QuizCardBuilder {
 		saveMenuItem.addActionListener(new SaveMenuListener());
 		fileMenu.add(newMenuItem);
 		fileMenu.add(saveMenuItem);
+		
+		JMenu editMenu = new JMenu("Edit");
+		JMenuItem copyMenuItem = new JMenuItem("Copy");
+		JMenuItem pasteMenuItem = new JMenuItem("Paste");
+		editMenu.add(copyMenuItem);
+		editMenu.add(pasteMenuItem);
+		
 		menuBar.add(fileMenu);
+		menuBar.add(editMenu);
 		
 		frame.setJMenuBar(menuBar);
 		frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
