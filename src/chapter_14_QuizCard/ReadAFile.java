@@ -12,7 +12,7 @@ public class ReadAFile {
 		try{
 			File myFile = new File("E:\\Test\\Java\\HeadFirstJava\\src\\chapter_14_QuizCard\\Foo.txt");
 //			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(myFile)));
-			BufferedReader reader = new BufferedReader(new FileReader(myFile));	//查看注释有没有乱码
+			BufferedReader reader = new BufferedReader(new FileReader(myFile));	//鏌ョ湅鏄惁娉ㄩ噴闂
 			String line = null;
 			while((line = reader.readLine()) != null){
 				System.out.println(line);
