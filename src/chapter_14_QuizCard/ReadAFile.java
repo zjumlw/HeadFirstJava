@@ -2,17 +2,17 @@ package chapter_14_QuizCard;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 
 public class ReadAFile {
 
 	public static void main(String[] args) {
 		try{
 			File myFile = new File("E:\\Test\\Java\\HeadFirstJava\\src\\chapter_14_QuizCard\\Foo.txt");
-			FileReader fileReader = new FileReader(myFile);
-			
-			BufferedReader reader = new BufferedReader(fileReader);
-			
+//			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(myFile)));
+			BufferedReader reader = new BufferedReader(new FileReader(myFile));	//查看注释有没有乱码
 			String line = null;
 			while((line = reader.readLine()) != null){
 				System.out.println(line);
