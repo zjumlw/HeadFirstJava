@@ -6,6 +6,15 @@ public class Song implements Comparable<Song>{
 	private String rating;
 	private String bpm;
 	
+	public boolean equals(Object aSong){
+		Song s = (Song) aSong;
+		return this.getTitle().equals(s.getTitle());
+	}
+	
+	public int hashCode(){
+		return this.title.hashCode();
+	}
+	
 	Song(String t, String a, String r, String b){
 		title = t;
 		artist = a;

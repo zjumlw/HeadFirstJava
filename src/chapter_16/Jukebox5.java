@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 
 public class Jukebox5 {
 	ArrayList<Song> songList = new ArrayList<Song>();
@@ -16,19 +17,27 @@ public class Jukebox5 {
 	}
 	
 	class ArtistCompare implements Comparator<Song>{
-
 		@Override
 		public int compare(Song one, Song two) {
 			return one.getArtist().compareTo(two.getArtist());
 		}
-		
 	}
+	
 	public void go(){
 		getSongs();
 		ArtistCompare artistCompare = new ArtistCompare();
-		Collections.sort(songList, artistCompare);
 		
 		System.out.println(songList);
+		
+		Collections.sort(songList);
+		System.out.println(songList);
+		
+		Collections.sort(songList, artistCompare);
+		System.out.println(songList);
+		
+		HashSet<Song> songSet = new HashSet<Song>();
+		songSet.addAll(songList);
+		System.out.println(songSet);
 	}
 	
 	private void getSongs(){
