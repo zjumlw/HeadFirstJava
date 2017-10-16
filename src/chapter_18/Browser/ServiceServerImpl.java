@@ -2,6 +2,7 @@ package chapter_18.Browser;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 
@@ -36,8 +37,14 @@ public class ServiceServerImpl extends UnicastRemoteObject implements ServiceSer
 	
 	public static void main(String[] args){
 		try{
+			 //启动RMI注册服务，指定端口为1099　（1099为默认端口）
+	         //也可以通过命令 ＄java_home/bin/rmiregistry 1099启动
+	         //这里用这种方式避免了再打开一个DOS窗口
+	         //而且用命令rmiregistry启动注册服务还必须事先用RMIC生成一个stub类为它所用
+			LocateRegistry.createRegistry(1099);
 			Naming.rebind("ServiceServer", new ServiceServerImpl());
 		}catch(Exception ex){
+			System.out.println("error");
 			ex.printStackTrace();
 		}
 		System.out.println("Remote service is running");
