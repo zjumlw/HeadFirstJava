@@ -15,7 +15,7 @@ public class Song implements Comparable<Song>{
 		return this.title.hashCode();
 	}
 	
-	Song(String t, String a, String r, String b){
+	public Song(String t, String a, String r, String b){
 		title = t;
 		artist = a;
 		rating = r;
